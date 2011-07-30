@@ -1,6 +1,7 @@
 -include ../Makefile.config
 
-CC_OPT = -O3
+#CC = clang
+CC_OPT = -Wall -O3
 
 default: libliml.a
 
