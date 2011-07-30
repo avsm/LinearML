@@ -24,6 +24,7 @@ void* call(void* k_arg){
   res->v = f(args) ;
   pthread_cond_signal(&(res->c)) ;
   pthread_mutex_unlock(&(res->m)) ;
+  return NULL;
 }
 
 future* future_make(void* (*f)(void*), void* args){
