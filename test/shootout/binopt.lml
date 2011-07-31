@@ -1,0 +1,27 @@
+module Main = struct
+
+  val init_vals: float * float * float * int -> float * float * float * float
+  let init_vals t v rf n =
+    let h = t / (Math.float_of_int n) in
+    let xd = (rf - 0.5 * (v * v)) * h in
+    let xv = v * (Math.sqrt h) in
+    let u = Math.exp ( xd + xv ) in
+    let d = Math.exp ( xd - xv ) in
+    let drift = Math.exp (rf * h) in
+    let q = (drift - d) / (u - d) in
+    q, u, d, drift
+
+  val main: unit #-> unit
+  let main () =
+    let s = 100.0 in
+    let k = 100.0 in
+    let t = 1.0 in
+    let v = 0.3 in
+    let rf = 0.03 in
+    let cp = -1.0 in
+    let n = 1000 in
+    let chunk = 200 in
+    let (q,u,d,drift) = init_vals t v rf n in
+    ()
+
+end
