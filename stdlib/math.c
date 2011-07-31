@@ -12,6 +12,11 @@ lvalue liml_sin(lvalue arg){
 
 }
 
+lvalue liml_exp(lvalue arg) {
+  lfloat res = expf(V2F(arg)) ;
+  return F2V(res) ;
+}
+
 lvalue liml_float_of_int(lvalue arg){
   lfloat x = (lfloat)arg;
   return F2V(x) ;
